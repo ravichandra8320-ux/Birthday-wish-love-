@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bangarii ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+    text-align:center;
+
+    background:
+    radial-gradient(circle at 20% 10%,rgba(255,255,255,.22),transparent 24%),
+    radial-gradient(circle at 80% 30%,rgba(255,182,217,.2),transparent 25%),
+    linear-gradient(135deg,#35105c,#8b174f,#ef5b88);
+}
+
+/* START SCREEN */
+
+.start{
+    position:fixed;
+    inset:0;
+    z-index:50;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(135deg,#250a42,#8b174f,#e83e79);
+
+    transition:1s;
+}
+
+.start.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.start-card,
+.card{
+    width:min(92%,780px);
+    padding:34px 24px;
+
+    border-radius:34px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:0 25px 70px rgba(0,0,0,.28);
+}
+
+.start-card h1{
+    font-size:clamp(38px,9vw,64px);
+    margin-bottom:15px;
+}
+
+.start-card p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* BUTTON */
+
+.btn{
+    border:0;
+    border-radius:999px;
+
+    padding:14px 25px;
+    margin:12px 6px;
+
+    background:#fff;
+    color:#d52b68;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px) scale(1.04);
+}
+
+/* MAIN */
+
+main{
+    padding:40px 12px;
+}
+
+.card{
+    margin:0 auto;
+}
+
+.kicker{
+    letter-spacing:3px;
+    font-size:13px;
+    text-transform:uppercase;
+    opacity:.9;
+}
+
+h1{
+    font-size:clamp(44px,10vw,76px);
+
+    margin:10px 0;
+
+    animation:glow 2s infinite alternate;
+}
+
+.name{
+    font-size:clamp(32px,8vw,58px);
+    font-weight:bold;
+}
+
+.date{
+    font-size:20px;
+    margin:10px 0 22px;
+}
+
+/* CAKE */
+
+.cake{
+    font-size:82px;
+    animation:bounce 1.8s infinite;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    display:flex;
+    justify-content:center;
+
+    gap:9px;
+
+    flex-wrap:wrap;
+
+    margin:18px 0 25px;
+}
+
+.time{
+    min-width:72px;
+
+    padding:12px 8px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.14);
+}
+
+.time b{
+    display:block;
+    font-size:25px;
+}
+
+.time span{
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+/* GALLERY */
+
+.section{
+    margin-top:28px;
+}
+
+.section h2{
+    font-size:30px;
+    margin-bottom:14px;
+}
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+}
+
+.gallery img{
+    width:100%;
+    height:270px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.22);
+
+    transition:.35s;
+}
+
+.gallery img:hover{
+    transform:scale(1.02);
+}
+
+.gallery img:first-child{
+    grid-column:1/-1;
+    height:390px;
+}
+
+/* LETTER */
+
+.letter{
+    display:none;
+
+    margin-top:25px;
+
+    animation:fade .9s;
+}
+
+.letter.open{
+    display:block;
+}
+
+.letter-box{
+    text-align:left;
+
+    padding:26px 20px;
+
+    border-radius:25px;
+
+    background:rgba(0,0,0,.14);
+
+    font-size:17px;
+
+    line-height:1.82;
+}
+
+.letter-box h2{
+    text-align:center;
+
+    line-height:1.45;
+
+    margin-bottom:16px;
+}
+
+.letter-box p{
+    margin:10px 0;
+}
+
+.center{
+    text-align:center;
+}
+
+/* WISH */
+
+.wish{
+    display:none;
+
+    margin-top:18px;
+
+    font-size:20px;
+
+    line-height:1.7;
+}
+
+.wish.show{
+    display:block;
+
+    animation:fade .8s;
+}
+
+/* FINAL */
+
+.final{
+    display:none;
+
+    margin-top:28px;
+
+    animation:fade 1s;
+}
+
+.final.show{
+    display:block;
+}
+
+.final .big{
+    font-size:72px;
+
+    animation:bounce 1.5s infinite;
+}
+
+.signature{
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-top:20px;
+}
+
+footer{
+    opacity:.75;
+
+    font-size:13px;
+
+    margin-top:30px;
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    z-index:10;
+
+    animation:float linear forwards;
+}
+
+/* ANIMATIONS */
+
+@keyframes float{
+
+    to{
+        transform:
+        translateY(-115vh)
+        rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:0 0 8px #fff;
+    }
+
+    to{
+        text-shadow:
+        0 0 18px #fff,
+        0 0 38px #ffb6d9;
+    }
+
+}
+
+@keyframes bounce{
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:560px){
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery img:first-child{
+        grid-column:auto;
+        height:330px;
+    }
+
+    .gallery img{
+        height:330px;
+    }
+
+    .letter-box{
+        font-size:16px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     OPENING SCREEN
+========================================= -->
+
+<div class="start" id="start">
+
+    <div class="start-card">
+
+        <div style="font-size:60px">
+            🎁💖
+        </div>
+
+        <h1>
+            A Surprise For You
+        </h1>
+
+        <p>
+
+            Hey Bangarii... 🥺❤️
+
+            <br><br>
+
+            Papu made something special
+            for your birthday.
+
+            <br>
+
+            Open it when you're ready. ✨
+
+        </p>
+
+        <button
+        class="btn"
+        onclick="startSite()">
+
+            💝 Open My Surprise
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     MUSIC
+========================================= -->
+
+<audio id="music" loop>
+
+    <source
+    src="birthday-song.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<!-- =========================================
+     MAIN WEBSITE
+========================================= -->
+
+<main>
+
+<div class="card">
+
+
+    <div class="kicker">
+
+        A SPECIAL DAY FOR A SPECIAL PERSON ✨
+
+    </div>
+
+
+    <h1>
+
+        🎂 Happy Birthday
+
+    </h1>
+
+
+    <div class="name">
+
+        Madhu ❤️
+
+    </div>
+
+
+    <div class="date">
+
+        🌸 August 20 🌸
+
+    </div>
+
+
+    <div class="cake">
+
+        🎂
+
+    </div>
+
+
+    <!-- COUNTDOWN -->
+
+    <div class="countdown">
+
+        <div class="time">
+
+            <b id="days">00</b>
+
+            <span>DAYS</span>
+
+        </div>
+
+
+        <div class="time">
+
+            <b id="hours">00</b>
+
+            <span>HOURS</span>
+
+        </div>
+
+
+        <div class="time">
+
+            <b id="minutes">00</b>
+
+            <span>MINUTES</span>
+
+        </div>
+
+
+        <div class="time">
+
+            <b id="seconds">00</b>
+
+            <span>SECONDS</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         PHOTO GALLERY
+    ========================================== -->
+
+    <div class="section">
+
+        <h2>
+            📸 My Bangarii's Memories
+        </h2>
+
+
+        <div class="gallery">
+
+            <img
+            src="madhu1.jpg"
+            alt="Birthday memory 1">
+
+            <img
+            src="madhu2.jpg"
+            alt="Birthday memory 2">
+
+            <img
+            src="madhu3.jpg"
+            alt="Birthday memory 3">
+
+            <img
+            src="madhu4.jpg"
+            alt="Birthday memory 4">
+
+            <img
+            src="madhu5.jpg"
+            alt="Birthday memory 5">
+
+        </div>
+
+    </div>
+
+
+    <!-- LETTER BUTTON -->
+
+    <button
+    class="btn"
+    onclick="openLetter()">
+
+        💌 Open Your Birthday Letter
+
+    </button>
+
+
+    <!-- =========================================
+         FULL LETTER
+    ========================================== -->
+
+    <div
+    class="letter"
+    id="letter">
+
+
+        <div class="letter-box">
+
+
+            <h2>
+
+                🌙🎂❤️
+                12:00 AM — HAPPY BIRTHDAY,
+                MY BANGARII
+                ❤️🎂🌙
+
+            </h2>
+
+
+            <p>
+
+                Happy Birthday, Madhu…
+                my Bangarii… my favourite person. 🥺❤️🧿
+
+            </p>
+
+
+            <p>
+
+                At exactly 12:00 AM, I just want to be
+                one of the first people to remind you
+                how special you are to me. 🥺🎂❤️
+
+            </p>
+
+
+            <p>
+
+                Today is your birthday, but honestly,
+                I feel like it’s a special day for me too…
+                because this is the day the person who
+                changed my life was born. 🥹💗
+
+            </p>
+
+
+            <p>
+
+                Bangarii, when you came into my life,
+                my life became much more beautiful. ❤️
+
+                I never expected that one person could
+                become such an important part of my
+                everyday happiness.
+
+                But somehow, you did. 🥺🫶🏻
+
+            </p>
+
+
+            <p>
+
+                You’re not just a girl for me, Bangarii…
+
+                <br>
+
+                <b>
+                    You became such a special part
+                    of my world. 🌎❤️
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Your cute eyes 👀🥺,
+                your beautiful smile 🫶🏻,
+                your lovely hair 😍…
+
+                everything about you makes you
+                special to me.
+
+                But what I love the most is the
+                happiness and peace I feel whenever
+                I talk to you. ❤️
+
+            </p>
+
+
+            <p>
+
+                Especially our calls… 🥺📞
+
+                Whenever I’m talking with you,
+                I forget about everything around me.
+
+                I don’t know how time passes so
+                quickly when I’m with you. 😭❤️
+
+                Those little conversations may look
+                ordinary to others, but to me,
+                they are some of my favourite moments. 🫶🏻🧿
+
+            </p>
+
+
+            <p>
+
+                Madhu, I love you soooooo much. ❤️🥺
+
+                <br><br>
+
+                Not only now.
+
+                <br>
+
+                Not only today.
+
+                <br>
+
+                Not only tomorrow.
+
+                <br><br>
+
+                <b>
+                    I’ll keep caring about you every day. ❤️♾️
+                </b>
+
+            </p>
+
+
+            <p>
+
+                And thank you, Bangarii…
+                for coming into my life. 🥺❤️
+
+                Thank you for every call,
+                every conversation,
+                every laugh,
+                every little care,
+                every letter,
+                every gift,
+
+                and every beautiful memory
+                you have given me. 🥹🫶🏻
+
+            </p>
+
+
+            <p>
+
+                And thank you for giving me
+                my favourite distant Bangarii 😁😂❤️.
+
+                It was seriously delicious 🤤😋.
+
+                I’ll never forget that little memory,
+                maa. 🥺❤️
+
+            </p>
+
+
+            <p>
+
+                And you know what makes this birthday
+                even more special? 🥺🧿
+
+            </p>
+
+
+            <p>
+
+                <b>
+
+                    Tomorrow, we complete one year
+                    of our beautiful bond. ❤️♾️
+
+                </b>
+
+            </p>
+
+
+            <p>
+
+                One year… 🥹
+
+                <br>
+
+                One year of talking.
+
+                <br>
+
+                One year of laughing.
+
+                <br>
+
+                One year of memories.
+
+                <br>
+
+                One year of caring.
+
+                <br>
+
+                One year of understanding each other.
+
+                <br>
+
+                One year of having someone who can
+                make an ordinary day feel special. ❤️
+
+            </p>
+
+
+            <p>
+
+                Looking back at this journey honestly
+                makes me smile, maa. 🥺❤️
+
+                I’m really happy that you became
+                such a beautiful part of my life. 🧿🫶🏻
+
+            </p>
+
+
+            <p>
+
+                And Bangarii, one small request… 🥺👉🏻👈🏻
+
+                <br><br>
+
+                Please keep our bond private.
+
+                I know you have already stopped telling
+                others, but I just wanted to remind you
+                once again 😁❤️.
+
+                Some beautiful things are better
+                protected quietly. 🧿🤫❤️
+
+            </p>
+
+
+            <p>
+
+                And please… never stop smiling. 🥺❤️
+
+                Your smile is one of the cutest things
+                about you.
+
+                So whenever life becomes difficult,
+                remember that you deserve happiness too. 🫶🏻🌸
+
+            </p>
+
+
+            <p>
+
+                Study well, Bangarii. 📚💗🥺
+
+                Work hard for your dreams.
+
+                Believe in yourself.
+
+                And whenever you achieve something
+                you’ve dreamed about,
+
+                I’ll be genuinely happy for you. ❤️✨
+
+            </p>
+
+
+            <p>
+
+                On your birthday,
+                I don’t just wish you a beautiful day…
+
+            </p>
+
+
+            <p>
+
+                <b>
+                    I wish you a beautiful life. 🥺❤️
+                </b>
+
+            </p>
+
+
+            <p>
+
+                I hope you get everything
+                your heart wishes for. 🌸✨
+
+                <br><br>
+
+                I hope you always have reasons
+                to smile. 😊💗
+
+                <br><br>
+
+                I hope you become successful
+                in everything you choose. 📚🏆✨
+
+                <br><br>
+
+                I hope you stay surrounded by people
+                who genuinely care about you. 🫶🏻
+
+                <br><br>
+
+                And most importantly,
+                I hope you never lose the beautiful
+                person you are. 🥺❤️
+
+            </p>
+
+
+            <p>
+
+                And remember this, Bangarii…
+
+            </p>
+
+
+            <p>
+
+                No matter how many days pass,
+                I’ll always have a special place
+                in my heart for you. ❤️🧿
+
+            </p>
+
+
+            <p>
+
+                I’ll always wish the best for you.
+
+                I’ll always care about your happiness.
+
+                And I’ll always be grateful that
+                our paths crossed. 🥺❤️
+
+            </p>
+
+
+            <p>
+
+                One day, I hope I can make even more
+                beautiful memories with you and make
+                the special days of your life even
+                more memorable. ☺️❤️✨
+
+            </p>
+
+
+            <p>
+
+                So today, forget everything else
+                for a while…
+
+                <br><br>
+
+                Just smile, enjoy your birthday,
+                eat your favourite food,
+                laugh a lot,
+
+                and make beautiful memories. 😁🎂❤️
+
+            </p>
+
+
+            <p>
+
+                Because today belongs to you,
+                Birthday Girl. 👑🎂💗
+
+            </p>
+
+
+            <p class="center">
+
+                <b>
+
+                    🎂🎉 HAPPIEST BIRTHDAY,
+                    MY LOVE, MY MADHU,
+                    MY BANGARII!
+                    🥺❤️😘🧿
+
+                </b>
+
+            </p>
+
+
+            <p>
+
+                May your life be filled with happiness. 🌸
+
+                <br>
+
+                May your dreams become reality. ✨
+
+                <br>
+
+                May your smile stay forever. 😊
+
+                <br>
+
+                May you always be proud of yourself. ❤️
+
+                <br>
+
+                And may every coming year bring you
+                more beautiful moments than the previous one. 🥺🫶🏻
+
+            </p>
+
+
+            <p
+            class="center"
+            style="font-size:22px">
+
+                <b>
+
+                    I LOVE YOU SOOOOOOO MUCH,
+                    BANGARII.
+                    ❤️🥺🫶🏻😘🧿♾️
+
+                </b>
+
+            </p>
+
+
+            <p class="center">
+
+                Happy Birthday,
+                my favourite person. 🎂👑❤️
+
+            </p>
+
+
+            <p
+            class="center"
+            style="font-size:20px">
+
+                Always keep that beautiful smile,
+                maa. 🥺❤️
+
+            </p>
+
+
+            <div class="signature">
+
+                — Your Papu 💙
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MAKE A WISH
+    ========================================== -->
+
+    <button
+    class="btn"
+    onclick="makeWish()">
+
+        🕯️ Make A Birthday Wish
+
+    </button>
+
+
+    <div
+    class="wish"
+    id="wish">
+
+        ✨ Close your eyes for a moment… ✨
+
+        <br><br>
+
+        Make your biggest birthday wish. 🎂💖
+
+        <br>
+
+        I hope life gives you many reasons
+        to smile. 🌸
+
+        <br><br>
+
+        <b>
+            Now blow the candles! 🕯️🎂💨
+        </b>
+
+    </div>
+
+
+    <!-- FINAL BUTTON -->
+
+    <button
+    class="btn"
+    onclick="finalSurprise()">
+
+        🎁 One More Surprise
+
+    </button>
+
+
+    <!-- =========================================
+         FINAL SURPRISE
+    ========================================== -->
+
+    <div
+    class="final"
+    id="final">
+
+
+        <div class="big">
+
+            🎂🎉🎈💖✨🌸
+
+        </div>
+
+
+        <h2>
+
+            HAPPY BIRTHDAY,
+            MADHU! 🥳❤️
+
+        </h2>
+
+
+        <p
+        style="font-size:20px;line-height:1.8">
+
+            Today belongs to you,
+            Birthday Girl. 👑
+
+            <br><br>
+
+            Smile more.
+            Laugh more.
+            Dream bigger.
+
+            <br><br>
+
+            And make this year your
+            most beautiful one yet. ✨❤️
+
+        </p>
+
+
+        <div class="signature">
+
+            — Papu 💙
+
+        </div>
+
+
+    </div>
+
+
+    <footer>
+
+        Made with ❤️ especially for Bangarii
+
+    </footer>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+/* OPEN WEBSITE */
+
+function startSite(){
+
+    document
+    .getElementById("start")
+    .classList
+    .add("hide");
+
+
+    const music =
+    document.getElementById("music");
+
+
+    music.volume=0.12;
+
+
+    music.play().catch(()=>{});
+
+
+    hearts(30);
+
+}
+
+
+/* OPEN LETTER */
+
+function openLetter(){
+
+    document
+    .getElementById("letter")
+    .classList
+    .add("open");
+
+
+    hearts(45);
+
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("letter")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+    },250);
+
+}
+
+
+/* MAKE WISH */
+
+function makeWish(){
+
+    document
+    .getElementById("wish")
+    .classList
+    .add("show");
+
+
+    hearts(60);
+
+}
+
+
+/* FINAL SURPRISE */
+
+function finalSurprise(){
+
+    document
+    .getElementById("final")
+    .classList
+    .add("show");
+
+
+    hearts(80);
+
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("final")
+        .scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+    },250);
+
+}
+
+
+/* FLOATING HEARTS */
+
+function hearts(n){
+
+    const symbols=[
+
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💓",
+        "✨",
+        "🌸",
+        "🧿"
+
+    ];
+
+
+    for(let i=0;i<n;i++){
+
+        const h =
+        document.createElement("div");
+
+
+        h.className="heart";
+
+
+        h.textContent =
+        symbols[
+            Math.floor(
+                Math.random()
+                *symbols.length
+            )
+        ];
+
+
+        h.style.left =
+        Math.random()*100+"vw";
+
+
+        h.style.fontSize =
+        (15+Math.random()*25)+"px";
+
+
+        h.style.animationDuration =
+        (4+Math.random()*5)+"s";
+
+
+        document.body.appendChild(h);
+
+
+        setTimeout(()=>{
+
+            h.remove();
+
+        },9500);
+
+    }
+
+}
+
+
+/* CONTINUOUS HEARTS */
+
+setInterval(()=>{
+
+    const h =
+    document.createElement("div");
+
+
+    h.className="heart";
+
+
+    h.textContent="💗";
+
+
+    h.style.left =
+    Math.random()*100+"vw";
+
+
+    h.style.fontSize =
+    (14+Math.random()*18)+"px";
+
+
+    h.style.animationDuration =
+    (5+Math.random()*4)+"s";
+
+
+    document.body.appendChild(h);
+
+
+    setTimeout(()=>{
+
+        h.remove();
+
+    },9500);
+
+},1000);
+
+
+/* COUNTDOWN */
+
+function updateCountdown(){
+
+    const now =
+    Date.now();
+
+
+    let target =
+    new Date(
+        "August 20, 2026 00:00:00"
+    ).getTime();
+
+
+    /* If this birthday has passed,
+       show the next August 20. */
+
+    if(now>target){
+
+        target =
+        new Date(
+            "August 20, 2027 00:00:00"
+        ).getTime();
+
+    }
+
+
+    const difference =
+    target-now;
+
+
+    const days =
+    Math.floor(
+        difference/86400000
+    );
+
+
+    const hours =
+    Math.floor(
+        (difference%86400000)
+        /3600000
+    );
+
+
+    const minutes =
+    Math.floor(
+        (difference%3600000)
+        /60000
+    );
+
+
+    const seconds =
+    Math.floor(
+        (difference%60000)
+        /1000
+    );
+
+
+    document
+    .getElementById("days")
+    .textContent =
+    String(days)
+    .padStart(2,"0");
+
+
+    document
+    .getElementById("hours")
+    .textContent =
+    String(hours)
+    .padStart(2,"0");
+
+
+    document
+    .getElementById("minutes")
+    .textContent =
+    String(minutes)
+    .padStart(2,"0");
+
+
+    document
+    .getElementById("seconds")
+    .textContent =
+    String(seconds)
+    .padStart(2,"0");
+
+}
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+updateCountdown();
+
+</script>
+
+</body>
+</html>
